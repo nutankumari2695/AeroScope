@@ -1,0 +1,452 @@
+/* Root Variables */
+:root {
+    --primary-color: #2c5aa0;
+    --secondary-color: #74c0fc;
+    --success-color: #00e400;
+    --warning-color: #ffff00;
+    --danger-color: #ff0000;
+    --info-color: #17a2b8;
+    --light-color: #f8f9fa;
+    --dark-color: #343a40;
+    --gradient-primary: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+    --gradient-secondary: linear-gradient(135deg, #f093fb 0%, #f5576c 100%);
+    --shadow-light: 0 2px 15px rgba(0, 0, 0, 0.1);
+    --shadow-medium: 0 5px 25px rgba(0, 0, 0, 0.15);
+    --transition: all 0.3s ease;
+}
+
+/* Global Styles */
+body {
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    line-height: 1.6;
+    color: var(--dark-color);
+    background-color: #f5f7fa;
+}
+
+.hero-section {
+    background: var(--gradient-primary);
+    padding: 100px 0;
+    position: relative;
+    overflow: hidden;
+}
+
+.hero-section::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background: url('https://pixabay.com/get/g78ae6d15602b6f8f0d45c6ec9c9e39602e07560baabfe434ee233d59be0d1860a764fd26aebe6b845378955c78c03088a73c2fc1fda0fd5b56a1697bbfb17de7_1280.png') center/cover;
+    opacity: 0.1;
+    z-index: 0;
+}
+
+.hero-section .container {
+    position: relative;
+    z-index: 1;
+}
+
+/* Custom Button Styles */
+.btn {
+    transition: var(--transition);
+    border-radius: 25px;
+    font-weight: 600;
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+}
+
+.btn:hover {
+    transform: translateY(-2px);
+    box-shadow: var(--shadow-medium);
+}
+
+.btn-light:hover {
+    background-color: #ffffff;
+    color: var(--primary-color);
+}
+
+/* Loading Card */
+.loading-card {
+    background: white;
+    padding: 3rem;
+    border-radius: 15px;
+    box-shadow: var(--shadow-light);
+}
+
+/* AQI Card */
+.aqi-card {
+    border: none;
+    border-radius: 20px;
+    box-shadow: var(--shadow-medium);
+    transition: var(--transition);
+    background: linear-gradient(135deg, #ffffff 0%, #f8f9fa 100%);
+}
+
+.aqi-card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 10px 40px rgba(0, 0, 0, 0.2);
+}
+
+.aqi-value {
+    font-size: 4rem;
+    font-weight: 900;
+    margin: 0;
+    transition: var(--transition);
+}
+
+.aqi-description {
+    font-size: 1.5rem;
+    font-weight: 600;
+    padding: 10px 20px;
+    border-radius: 25px;
+    display: inline-block;
+    transition: var(--transition);
+}
+
+/* AQI Color Classes */
+.good {
+    color: var(--success-color);
+    background-color: rgba(0, 228, 0, 0.1);
+}
+
+.fair {
+    color: #ffcc00;
+    background-color: rgba(255, 204, 0, 0.1);
+}
+
+.moderate {
+    color: #ff7e00;
+    background-color: rgba(255, 126, 0, 0.1);
+}
+
+.poor {
+    color: var(--danger-color);
+    background-color: rgba(255, 0, 0, 0.1);
+}
+
+.very-poor {
+    color: #8f3f97;
+    background-color: rgba(143, 63, 151, 0.1);
+}
+
+/* Component Cards */
+.component-card {
+    border: none;
+    border-radius: 15px;
+    box-shadow: var(--shadow-light);
+    transition: var(--transition);
+    height: 100%;
+    background: white;
+}
+
+.component-card:hover {
+    transform: translateY(-3px);
+    box-shadow: var(--shadow-medium);
+}
+
+.component-header {
+    background: var(--gradient-secondary);
+    color: white;
+    padding: 1rem;
+    border-radius: 15px 15px 0 0;
+    text-align: center;
+}
+
+.component-name {
+    font-size: 1.25rem;
+    font-weight: 700;
+    margin: 0;
+}
+
+.component-description {
+    font-size: 0.85rem;
+    opacity: 0.9;
+    margin: 0;
+}
+
+.component-body {
+    padding: 1.5rem;
+    text-align: center;
+}
+
+.component-value {
+    font-size: 2rem;
+    font-weight: 700;
+    margin: 0.5rem 0;
+    color: var(--primary-color);
+}
+
+.component-unit {
+    font-size: 0.9rem;
+    color: #6c757d;
+    margin-bottom: 1rem;
+}
+
+/* Progress Bars */
+.progress {
+    height: 10px;
+    border-radius: 25px;
+    background-color: #e9ecef;
+    margin-bottom: 0.5rem;
+}
+
+.progress-bar {
+    border-radius: 25px;
+    transition: width 1s ease-in-out;
+}
+
+.percentage-text {
+    font-weight: 600;
+    color: var(--dark-color);
+}
+
+/* Chart Container */
+.card {
+    border: none;
+    border-radius: 15px;
+    box-shadow: var(--shadow-light);
+}
+
+.card-header {
+    background: var(--gradient-primary);
+    color: white;
+    border-radius: 15px 15px 0 0;
+    border: none;
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+    .hero-section {
+        padding: 60px 0;
+    }
+    
+    .display-4 {
+        font-size: 2rem;
+    }
+    
+    .aqi-value {
+        font-size: 3rem;
+    }
+    
+    .component-card {
+        margin-bottom: 1rem;
+    }
+    
+    .btn-lg {
+        padding: 12px 30px;
+        font-size: 1rem;
+    }
+}
+
+@media (max-width: 576px) {
+    .hero-section {
+        padding: 40px 0;
+    }
+    
+    .display-4 {
+        font-size: 1.75rem;
+    }
+    
+    .aqi-value {
+        font-size: 2.5rem;
+    }
+    
+    .component-value {
+        font-size: 1.5rem;
+    }
+    
+    .loading-card {
+        padding: 2rem;
+    }
+}
+
+/* Animations */
+@keyframes fadeIn {
+    from {
+        opacity: 0;
+        transform: translateY(20px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+@keyframes pulse {
+    0% {
+        transform: scale(1);
+    }
+    50% {
+        transform: scale(1.05);
+    }
+    100% {
+        transform: scale(1);
+    }
+}
+
+.fade-in {
+    animation: fadeIn 0.6s ease-out;
+}
+
+.pulse {
+    animation: pulse 2s infinite;
+}
+
+/* Navbar Enhancements */
+.navbar-brand {
+    font-weight: 700;
+    font-size: 1.5rem;
+}
+
+.navbar {
+    backdrop-filter: blur(10px);
+    background: rgba(44, 90, 160, 0.95) !important;
+}
+
+/* Footer Styles */
+footer {
+    background: var(--dark-color) !important;
+    margin-top: auto;
+}
+
+/* Utility Classes */
+.text-shadow {
+    text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.3);
+}
+
+.bg-gradient-primary {
+    background: var(--gradient-primary);
+}
+
+.bg-gradient-secondary {
+    background: var(--gradient-secondary);
+}
+
+/* Info Cards */
+.info-card {
+    border: none;
+    border-radius: 15px;
+    box-shadow: var(--shadow-light);
+    height: 100%;
+    background: var(--gradient-secondary); /* 🔹 merged update */
+}
+
+/* AQI Range */
+.aqi-range-item {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 12px 15px;
+    margin-bottom: 8px;
+    border-radius: 10px;
+    background: rgba(0, 0, 0, 0.05);
+    transition: var(--transition);
+}
+
+.aqi-range-item:hover {
+    transform: translateX(5px);
+    box-shadow: var(--shadow-light);
+}
+
+.range-number {
+    font-weight: 700;
+    font-size: 1.2rem;
+    width: 30px;
+    text-align: center;
+}
+
+.range-label {
+    flex: 1;
+    margin-left: 15px;
+    font-weight: 600;
+}
+
+.aqi-range-item i {
+    font-size: 1.5rem;
+}
+
+.text-orange {
+    color: #ff7e00 !important;
+}
+
+.text-purple {
+    color: #8f3f97 !important;
+}
+
+/* Protection Advice */
+.advice-item {
+    display: flex;
+    align-items: flex-start;
+    margin-bottom: 15px;
+    padding: 10px;
+    border-radius: 8px;
+    background: rgba(0, 0, 0, 0.03);
+}
+
+.advice-item i {
+    margin-right: 12px;
+    margin-top: 2px;
+    font-size: 1.2rem;
+    min-width: 20px;
+}
+
+.advice-item span {
+    flex: 1;
+    line-height: 1.5;
+}
+
+/* Summary Card */
+.summary-card {
+    border: none;
+    border-radius: 15px;
+    box-shadow: var(--shadow-medium);
+    background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+    color: white;
+}
+
+.pollution-percentage {
+    font-size: 3rem;
+    font-weight: 900;
+    margin: 1rem 0;
+    text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.3);
+}
+
+/* Responsive adjustments */
+@media (max-width: 768px) {
+    .aqi-range-item {
+        padding: 10px 12px;
+    }
+    
+    .range-number {
+        font-size: 1rem;
+        width: 25px;
+    }
+    
+    .pollution-percentage {
+        font-size: 2.5rem;
+    }
+    
+    .advice-item {
+        margin-bottom: 12px;
+        padding: 8px;
+    }
+}
+
+/* Custom Scrollbar */
+::-webkit-scrollbar {
+    width: 8px;
+}
+
+::-webkit-scrollbar-track {
+    background: #f1f1f1;
+}
+
+::-webkit-scrollbar-thumb {
+    background: var(--primary-color);
+    border-radius: 10px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+    background: #1a4480;
+}
