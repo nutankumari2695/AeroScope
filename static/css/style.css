@@ -16,30 +16,36 @@
 }
 
 /* Global Styles */
+html, body {
+    height: 100%;
+}
+
 body {
     font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
     line-height: 1.6;
     color: var(--dark-color);
-    background-color: #f5f7fa;
+    background: linear-gradient(135deg, rgba(245, 247, 250, 1) 0%, rgba(232, 244, 248, 1) 100%);
+    display: flex;
+    flex-direction: column;
+    min-height: 100vh;
+}
+
+/* keep page content flexible so footer doesn't create extra space */
+.main {
+    flex: 1 0 auto;
 }
 
 .hero-section {
-    background: var(--gradient-primary);
-    padding: 100px 0;
+    min-height: 75vh;
+    padding: 120px 0 80px;
     position: relative;
     overflow: hidden;
-}
-
-.hero-section::before {
-    content: '';
-    position: absolute;
-    top: 0;
-    left: 0;
-    right: 0;
-    bottom: 0;
-    background: url('https://pixabay.com/get/g78ae6d15602b6f8f0d45c6ec9c9e39602e07560baabfe434ee233d59be0d1860a764fd26aebe6b845378955c78c03088a73c2fc1fda0fd5b56a1697bbfb17de7_1280.png') center/cover;
-    opacity: 0.1;
-    z-index: 0;
+    display: flex;
+    align-items: center;
+    background: linear-gradient(180deg, rgba(0,0,0,0.55), rgba(0,0,0,0.25)), url('../images/bgpic.png') center/cover no-repeat fixed;
+    background-size: cover;
+    background-position: center center;
+    color: #fff;
 }
 
 .hero-section .container {
@@ -300,14 +306,27 @@ body {
 }
 
 .navbar {
-    backdrop-filter: blur(10px);
-    background: rgba(44, 90, 160, 0.95) !important;
+    backdrop-filter: blur(8px);
+    background: rgba(44, 90, 160, 0.65) !important;
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    z-index: 1030;
+    box-shadow: 0 2px 8px rgba(0,0,0,0.12);
+}
+
+/* ensure content is not hidden under fixed navbar */
+body { padding-top: 70px; }
+
+.navbar-logo {
+    height: 36px;
+    width: auto;
 }
 
 /* Footer Styles */
 footer {
     background: var(--dark-color) !important;
-    margin-top: auto;
 }
 
 /* Utility Classes */
@@ -329,7 +348,29 @@ footer {
     border-radius: 15px;
     box-shadow: var(--shadow-light);
     height: 100%;
-    background: var(--gradient-secondary); /* 🔹 merged update */
+    background: var(--gradient-secondary);
+    position: relative;
+    overflow: hidden;
+}
+
+.info-card::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background-image: url('https://images.unsplash.com/photo-1441974231531-c6227db76b6e?ixlib=rb-4.0.3&auto=format&fit=crop&w=400&h=300&q=80');
+    background-size: cover;
+    background-position: center;
+    opacity: 0.1;
+    z-index: 1;
+}
+
+.info-card .card-header,
+.info-card .card-body {
+    position: relative;
+    z-index: 2;
 }
 
 /* AQI Range */
